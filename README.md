@@ -3,7 +3,7 @@
 
 <a href="https://www.raspberrypi.org"><img src="https://www.raspberrypi.org/wp-content/uploads/2012/03/raspberry-pi-logo.png" alt="Raspberry Pi Logo" align="left" style="margin-right: 25px" width=130></a>
 
-> The Raspberry Pi is a series of credit card-sized single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote the teaching of basic computer science in schools and developing countries. Official Link: [Raspberry Pi Homepage](https://raspberrypi.com)
+> The Raspberry Pi (RPi) is a series of credit card-sized single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote the teaching of basic computer science in schools and developing countries. Official Link: [Raspberry Pi Homepage](https://raspberrypi.com)
 
 
 
@@ -18,6 +18,10 @@
 <br>
 
 ---
+
+## Getting Started Guide
+
+[Google Slides](https://docs.google.com/presentation/d/1DxPTHMm7aun8AQxGypVyK0ROl-Usz9JCDr3435EMqmc/edit?usp=sharing)
 
 ## *Accessing the Rpi through the command prompt for the first time(with Rpi OS installation)*
 
