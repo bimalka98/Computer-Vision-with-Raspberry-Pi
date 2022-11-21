@@ -67,6 +67,9 @@ class FaceDetector
    
         // member function to grab frame from the camera video stream
         void CaptureFrame();
+
+        // public member function to detect faces
+        void DetectFaces();
         
         // member function to visualize the detected faces (fully processed frame)
         void VisualizeFrame();

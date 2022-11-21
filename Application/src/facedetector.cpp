@@ -106,6 +106,11 @@ void FaceDetector::CaptureFrame(){
         
 }
 
+// public member function to detect faces
+void FaceDetector::DetectFaces(){
+
+}
+
 // public member function to visualize the detected objects (fully processed frame)
 void FaceDetector::VisualizeFrame(){
     
