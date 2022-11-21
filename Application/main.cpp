@@ -43,11 +43,23 @@ int main( int argc, char *argv[] )
 
     FaceDetector _facedetector; 
 
+    // initializing the video capturing object
     _facedetector.InitializeVideoCapture();
 
-    _facedetector.CaptureFrame();
+    while(true){
 
-    _facedetector.VisualizeFrame();
+        // get the frame from the camera
+        _facedetector.CaptureFrame();
+
+        // visualization of the frame
+        _facedetector.VisualizeFrame();
+
+        // wait for 'q' key to exit from the program
+        if ( cv::waitKey( 1 ) == 'q' ) {
+            break;
+        } 
+    }
+    
 
 
 

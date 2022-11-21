@@ -115,9 +115,6 @@ void FaceDetector::VisualizeFrame(){
     // display the frame
     cv::imshow( "Face Detection", this->capturedFrame );
 
-    // 
-    cv::waitKey(10);
-
 }
 
 
