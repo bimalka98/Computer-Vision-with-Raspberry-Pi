@@ -1,3 +1,4 @@
+# Cmake finalized
 cmake_minimum_required(VERSION 3.1)
 
 # set the project name
