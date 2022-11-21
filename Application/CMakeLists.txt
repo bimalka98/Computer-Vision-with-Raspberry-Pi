@@ -23,7 +23,7 @@ find_package(OpenCV REQUIRED)
 # target
 add_executable(detect_faces 
 	main.cpp
-    ${CMAKE_SOURCE_DIR}/facedetector.hpp
+    ${CMAKE_SOURCE_DIR}/facedetector.cpp
     )
 # external library
 target_link_libraries(detect_faces ${OpenCV_LIBS})
