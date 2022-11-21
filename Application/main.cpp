@@ -27,6 +27,11 @@ Links are commented near the code for convenience.
 // include the header files for OpenCV
 #include <opencv2/highgui/highgui.hpp>  // for OpenCV window I/O
 #include <opencv2/opencv.hpp>           // for OpenCV general functionality    
+
+// include the user-defined header files
+#include "src/facedetector.hpp"      // a library developed by the author for face detection fucntionalities
+
+
 /*
 *************************************************************************************
 *              >>>          Start of Main Function           >>>                    *
@@ -35,6 +40,15 @@ Links are commented near the code for convenience.
 
 int main( int argc, char *argv[] )
 { 
+
+    FaceDetector _facedetector; 
+
+    _facedetector.InitializeVideoCapture();
+
+    _facedetector.CaptureFrame();
+
+    _facedetector.VisualizeFrame();
+
 
 
     return 0;
