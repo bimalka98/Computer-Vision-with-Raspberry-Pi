@@ -3,6 +3,7 @@
 *                                Author Details                                     *
 * Author: Bimalka Piyaruwan Thalagala                                               *                                            *
 * Email: bimalkapiyaruwan1998322@gmail.com                                          *
+* GitHub: https://github.com/bimalka98                                              *
 *===================================================================================*
 
 *                                Description                                        *
@@ -32,10 +33,6 @@ Links are commented near the code for convenience.
 // user defined libraries
 #include "facedetector.hpp" // a library developed by the author for face detection fucntinalities
 
-
-
-
-
 /*
 **************************************************************************
 *                       Private Member Functions                         *
@@ -63,20 +60,19 @@ void FaceDetector::InitializeVideoCapture(){
 
         // if the attempt is unsuccessful, wait for 1 second and try again
         if(!this->usbCamera.isOpened()){
-            std::cout << "Unable to open the camera. Attempt " << _attempts << "." << std::endl;
-            std::cout << "Waiting for 100 millisecond..." << std::endl;
+            std::cout << "[ERROR] unable to open the camera. Attempt " << _attempts << "." << std::endl;
+            std::cout << "[INFO] Waiting for 100 millisecond..." << std::endl;
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
             _attempts++;
         }
 
         // if the attempt is unsuccessful after 10 attempts, exit the program
         if(_attempts == 10){
-            std::cout << "Unable to open the camera after 10 attempts. Exiting..." << std::endl;
+            std::cout << "[ERROR] unable to open the camera after 10 attempts. Exiting..." << std::endl;
             exit(1);
         }
     }
-    
-    
+        
     // set the camera properties
     // identified values through trial and error to get near real time performance
     this->usbCamera.set(cv::CAP_PROP_FPS, this->FPS);
@@ -90,6 +86,8 @@ void FaceDetector::InitializeVideoCapture(){
 void FaceDetector::InitializeDNN(){
 
     // Note: The varibles MODEL_CONFIGURATION_FILE and MODEL_WEIGHTS_FILE are passed in via cmake
+    // (deploy.prototxt) is the model configuration which describes the model archtecture
+    // (res10_300x300_ssd_iter_140000_fp16.caffemodel) is the binary data for the model weights.
     this->network = cv::dnn::readNetFromCaffe(FACE_DETECTION_CONFIGURATION, FACE_DETECTION_WEIGHTS);
 
     // check if the model is properly loaded
@@ -98,7 +96,7 @@ void FaceDetector::InitializeDNN(){
         exit(EXIT_FAILURE);
     }
 
-    std::cout << "[INFO] loaded the model successfully" << std::endl;
+    std::cout << "[INFO] loaded the DNN model successfully" << std::endl;
 }
 
 // public member function to grab frame from the camera video stream
@@ -144,6 +142,7 @@ void FaceDetector::DetectFaces(){
     
     cv::Mat _detectionmatrix(_detection.size[2], _detection.size[3], CV_32F, _detection.ptr<float>());
 
+    // iterate through the results of the detection
     for (int i = 0; i < _detectionmatrix.rows; i++) {
         
         float _confidence = _detectionmatrix.at<float>(i, 2);
@@ -161,6 +160,7 @@ void FaceDetector::DetectFaces(){
         int _xrt = static_cast<int>(_detectionmatrix.at<float>(i, 5) * this->capturedFrame.cols);
         int _yrt = static_cast<int>(_detectionmatrix.at<float>(i, 6) * this->capturedFrame.rows);
 
+        // add the bounding box to the vector containing detected faces
         this->detectedFaces.emplace_back(_xlb, _ylb, (_xrt - _xlb), (_yrt - _ylb));
     }
 
@@ -169,9 +169,10 @@ void FaceDetector::DetectFaces(){
 // public member function to visualize the detected objects (fully processed frame)
 void FaceDetector::VisualizeFrame(){
     
-    
+    // define a color for the bounding box
     cv::Scalar _color(0, 105, 205);
 
+    // drawing the bounding boxes around the detected faces
     for(const auto & rectangle : this->detectedFaces){
         cv::rectangle(this->capturedFrame, rectangle, _color, 4);
     }

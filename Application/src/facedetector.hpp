@@ -3,6 +3,7 @@
 *                                Author Details                                     *
 * Author: Bimalka Piyaruwan Thalagala                                               *                                            *
 * Email: bimalkapiyaruwan1998322@gmail.com                                          *
+* GitHub: https://github.com/bimalka98                                              *
 *===================================================================================*
 
 *                                Description                                        *

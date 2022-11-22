@@ -3,6 +3,7 @@
 *                                Author Details                                     *
 * Author: Bimalka Piyaruwan Thalagala                                               *                                            *
 * Email: bimalkapiyaruwan1998322@gmail.com                                          *
+* GitHub: https://github.com/bimalka98                                              *
 *===================================================================================*
 
 *                                Description                                        *
@@ -20,7 +21,6 @@ Links are commented near the code for convenience.
 
 // include the standard C++ headers
 #include <iostream> // for standard I/O
-#include <fstream>  // for file I/O
 #include <chrono>   // for high resolution timer
 #include <thread>   // for sleep
 
@@ -41,6 +41,7 @@ Links are commented near the code for convenience.
 int main( int argc, char *argv[] )
 { 
 
+    // instantiate the face detector object
     FaceDetector _facedetector; 
 
     // initializing the video capturing object
