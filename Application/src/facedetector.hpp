@@ -45,6 +45,16 @@ class FaceDetector
         // varaible to store the captured frame and the preprocessed frame
         cv::Mat capturedFrame;       
     
+        // parameters related to face detection                
+        cv::dnn::Net network;               // Face detection network                
+        const int inputImageWidth = 300;    // Input image width                
+        const int inputImageHeight = 300;   // Input image height                
+        const double scaleFactor = 1.0;     // Scale factor when creating image blob                
+        const cv::Scalar meanValues = {104., 177.0, 123.0};       // Mean normalization values network was trained with                
+        const float confidenceThreshold = 0.5;   // Face detection confidence threshold
+        
+        // vector to hold detected faces
+        std::vector<cv::Rect> detectedFaces;
     
     public:
         
@@ -63,8 +73,11 @@ class FaceDetector
         *******************************************************/
         
         // member function to initialize the video capturing object
-        void InitializeVideoCapture();        
-   
+        void InitializeVideoCapture();
+
+        // member function to initialize the face detector
+        void InitializeDNN();
+
         // member function to grab frame from the camera video stream
         void CaptureFrame();
 

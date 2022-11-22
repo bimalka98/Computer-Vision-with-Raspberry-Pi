@@ -46,6 +46,9 @@ int main( int argc, char *argv[] )
     // initializing the video capturing object
     _facedetector.InitializeVideoCapture();
 
+    // loading the DNN model
+    _facedetector.InitializeDNN();
+
     while(true){
 
         // get the frame from the camera

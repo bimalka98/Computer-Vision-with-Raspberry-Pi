@@ -86,6 +86,21 @@ void FaceDetector::InitializeVideoCapture(){
     std::cout << "[INFO] usb camera initialized" << std::endl;
 }
 
+// member function to initialize the face detector
+void FaceDetector::InitializeDNN(){
+
+    // Note: The varibles MODEL_CONFIGURATION_FILE and MODEL_WEIGHTS_FILE are passed in via cmake
+    this->network = cv::dnn::readNetFromCaffe(FACE_DETECTION_CONFIGURATION, FACE_DETECTION_WEIGHTS);
+
+    // check if the model is properly loaded
+    if ( this->network.empty() ) {
+        std::cout << "[ERROR] Could not load the model" << std::endl;
+        exit(EXIT_FAILURE);
+    }
+
+    std::cout << "[INFO] loaded the model successfully" << std::endl;
+}
+
 // public member function to grab frame from the camera video stream
 void FaceDetector::CaptureFrame(){
 
