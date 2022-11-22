@@ -19,10 +19,6 @@
 
 ---
 
-## Getting Started Guide
-
-[Google Slides](https://docs.google.com/presentation/d/1DxPTHMm7aun8AQxGypVyK0ROl-Usz9JCDr3435EMqmc/edit?usp=sharing)
-
 ## *Accessing the Rpi through the command prompt for the first time(with Rpi OS installation)*
 
 ***Watch these videos first to know how to install rpi OS and configure the pi to autoconnect to the local wifi network at booting***
