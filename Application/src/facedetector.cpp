@@ -132,14 +132,14 @@ void FaceDetector::DetectFaces(){
      rescaling the image to the correct input size for the network. 
      It also subtracts the mean value in each color channel
      */
-    this->inpuBlob = cv::dnn::blobFromImage(
+    this->inputBlob = cv::dnn::blobFromImage(
         this->capturedFrame, 
         this->scaleFactor, 
         cv::Size(this->inputImageWidth, this->inputImageHeight),
         this->meanValues, false, false);
     
     // forward our data through the network
-    this->network.setInput(this->inpuBlob, "data");    
+    this->network.setInput(this->inputBlob, "data");    
     cv::Mat _detection = this->network.forward("detection_out");
     
     cv::Mat _detectionmatrix(_detection.size[2], _detection.size[3], CV_32F, _detection.ptr<float>());
