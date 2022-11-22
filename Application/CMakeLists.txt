@@ -22,12 +22,12 @@ set(HEADER_FILES
 find_package(OpenCV REQUIRED)
 
 # target
-add_executable(detect_faces 
+add_executable(${PROJECT_NAME} 
 	main.cpp
     ${CMAKE_SOURCE_DIR}/facedetector.cpp
     )
 # external library
-target_link_libraries(detect_faces ${OpenCV_LIBS})
+target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 
 # Introduce preprocessor variables to keep paths of asset files
 set(FACE_DETECTION_CONFIGURATION "${PROJECT_SOURCE_DIR}/assets/deploy.prototxt")
