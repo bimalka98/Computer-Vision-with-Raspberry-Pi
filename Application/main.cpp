@@ -54,6 +54,9 @@ int main( int argc, char *argv[] )
         // get the frame from the camera
         _facedetector.CaptureFrame();
 
+        // detect the faces using the DNN
+        _facedetector.DetectFaces();
+
         // visualization of the frame
         _facedetector.VisualizeFrame();
 

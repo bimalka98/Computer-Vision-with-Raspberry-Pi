@@ -124,11 +124,58 @@ void FaceDetector::CaptureFrame(){
 // public member function to detect faces
 void FaceDetector::DetectFaces(){
 
+    // clear the vector containing detected faces
+    this->detectedFaces.clear();
+
+    /* transforming the input image into a data blob. 
+     The function cv::dnn::blobFromImage takes care of
+     rescaling the image to the correct input size for the network. 
+     It also subtracts the mean value in each color channel
+     */
+    this->inpuBlob = cv::dnn::blobFromImage(
+        this->capturedFrame, 
+        this->scaleFactor, 
+        cv::Size(this->inputImageWidth, this->inputImageHeight),
+        this->meanValues, false, false);
+    
+    // forward our data through the network
+    this->network.setInput(this->inpuBlob, "data");    
+    cv::Mat _detection = this->network.forward("detection_out");
+    
+    cv::Mat _detectionmatrix(_detection.size[2], _detection.size[3], CV_32F, _detection.ptr<float>());
+
+    for (int i = 0; i < _detectionmatrix.rows; i++) {
+        
+        float _confidence = _detectionmatrix.at<float>(i, 2);
+
+        // neglect faces with low confidence 
+        if (_confidence < this->confidenceThreshold) {
+            continue;
+        }
+        
+        // left bottom coordinates
+        int _xlb = static_cast<int>(_detectionmatrix.at<float>(i, 3) * this->capturedFrame.cols);
+        int _ylb = static_cast<int>(_detectionmatrix.at<float>(i, 4) * this->capturedFrame.rows);
+
+        // right top coordinates
+        int _xrt = static_cast<int>(_detectionmatrix.at<float>(i, 5) * this->capturedFrame.cols);
+        int _yrt = static_cast<int>(_detectionmatrix.at<float>(i, 6) * this->capturedFrame.rows);
+
+        this->detectedFaces.emplace_back(_xlb, _ylb, (_xrt - _xlb), (_yrt - _ylb));
+    }
+
 }
 
 // public member function to visualize the detected objects (fully processed frame)
 void FaceDetector::VisualizeFrame(){
     
+    
+    cv::Scalar _color(0, 105, 205);
+
+    for(const auto & rectangle : this->detectedFaces){
+        cv::rectangle(this->capturedFrame, rectangle, _color, 4);
+    }
+
     // create a window to display the frame
     cv::namedWindow( "Face Detection", cv::WINDOW_AUTOSIZE );
 

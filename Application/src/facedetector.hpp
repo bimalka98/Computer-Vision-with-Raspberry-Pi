@@ -42,8 +42,8 @@ class FaceDetector
         int framePosition = 1;  // 0-based index of the frame to be decoded/captured next.
         int bufferSize = 1;     // internal buffer will now store only 1 frames
 
-        // varaible to store the captured frame and the preprocessed frame
-        cv::Mat capturedFrame;       
+        // varaible to store the captured frame and the input to the DNN
+        cv::Mat capturedFrame, inputBlob;       
     
         // parameters related to face detection                
         cv::dnn::Net network;               // Face detection network                
