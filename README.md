@@ -1,25 +1,27 @@
-# OpenCV-on-RPi
+## 🔴 Computer Vision with Raspberry Pi
 
-
-<a href="https://www.raspberrypi.org"><img src="https://www.raspberrypi.org/wp-content/uploads/2012/03/raspberry-pi-logo.png" alt="Raspberry Pi Logo" align="left" style="margin-right: 25px" width=130></a>
-
-> The Raspberry Pi (RPi) is a series of credit card-sized single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote the teaching of basic computer science in schools and developing countries. Official Link: [Raspberry Pi Homepage](https://raspberrypi.com)
-
-
-
-<br><br>
+|**OpenCV**|**Raspberry Pi**|
+|:----:|:----:|
+|<a href="https://www.raspberrypi.org"><img src="https://www.raspberrypi.org/wp-content/uploads/2012/03/raspberry-pi-logo.png" alt="Raspberry Pi Logo" style="margin-right: 25px" width=130></a>|<a href="https://opencv.org/"><img src="https://opencv.org/wp-content/uploads/2020/07/cropped-Fav-270x270.png" alt="OpenCV Logo"  style="margin-right: 25px" width=130></a>|
+|The Raspberry Pi (RPi) is a series of credit card-sized single-board computers developed in the United Kingdom by the Raspberry Pi Foundation to promote the teaching of basic computer science in schools and developing countries. Official Link: [Raspberry Pi Homepage](https://raspberrypi.com)|OpenCV is a library of programming functions mainly aimed at real-time computer vision. Originally developed by Intel, it was later supported by Willow Garage then Itseez. The library is cross-platform and free for use under the open-source Apache 2 License. [Source Repository](https://github.com/opencv/opencv)|
 
 ---
 
-<a href="https://opencv.org/"><img src="https://opencv.org/wp-content/uploads/2020/07/cropped-Fav-270x270.png" alt="OpenCV Logo" align="left" style="margin-right: 25px" width=130></a>
+## 🔴 Getting Started Guide
 
-> OpenCV is a library of programming functions mainly aimed at real-time computer vision. Originally developed by Intel, it was later supported by Willow Garage then Itseez. The library is cross-platform and free for use under the open-source Apache 2 License. [Source Repository](https://github.com/opencv/opencv)
-
-<br>
+1. Remotely access the RPi Desktop using VNC viewer.
+2. Open the terminal and change the directory to `Desktop`.
+3. Clone this repository.
+4. Get into the cloned repository.
+5. Give execution permission to the shell script.
+6. Run the shell script and wait until it finishes its job.
+7. Connect a USB camera/ RPi camera to the RPi.
+8. Change directory to `/Application/bin/`.
+9. Run the executable and check whether it really detects faces
 
 ---
 
-## *Accessing the Rpi through the command prompt for the first time(with Rpi OS installation)*
+### *Accessing the Rpi through the command prompt for the first time(with Rpi OS installation)*
 
 ***Watch these videos first to know how to install rpi OS and configure the pi to autoconnect to the local wifi network at booting***
 
@@ -28,7 +30,7 @@
 
 1. Open command prompt and type following commands.
 
-###  Input
+####  Input
 
 ```shell
 
@@ -40,7 +42,7 @@ Warning: Permanently added 'rpibimalka98,192.168.8.102' (ECDSA) to the list of k
 pi@rpibimalka98's password: YOUR_PASSWORD_HERE
 ```
 
-###  Output
+####  Output
 ```shell
 Linux rpibimalka98 5.10.92-v7+ #1514 SMP Mon Jan 17 17:36:39 GMT 2022 armv7l
 
@@ -53,14 +55,14 @@ permitted by applicable law.
 Last login: Fri Jan 28 07:01:06 2022
 ```
 
-###  Input
+####  Input
 
 ```shell
 # Initializing the VNC server inside the pi
 pi@rpibimalka98:~ $ vncserver
 ```
 
-###  Output
+####  Output
 ```shell
 VNC(R) Server 6.7.2 (r42622) ARMv6 (May 13 2020 19:34:20)
 Copyright (C) 2002-2020 RealVNC Ltd.
@@ -84,6 +86,6 @@ New desktop is rpibimalka98:2 (192.168.x.xxx:x)
 
 ---
  
-##  A curated list of awesome Raspberry Pi tools, projects, images and resources
+## 🔴 A curated list of awesome Raspberry Pi tools, projects, images and resources
 
 https://github.com/thibmaek/awesome-raspberry-pi
