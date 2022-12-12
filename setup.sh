@@ -27,7 +27,6 @@ install_dependencies () {
     sudo apt-get install -y \
         build-essential \
         cmake \
-        git \
         gfortran \
         cron \
         libjpeg-dev \
