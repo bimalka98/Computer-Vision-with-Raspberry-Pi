@@ -9,10 +9,11 @@
 
 ## 🔴 Getting Started Guide
 
-1. Remotely access the RPi Desktop using VNC viewer. 
+1. **Remotely access the RPi Desktop using VNC viewer.** 
 <details>
-  <summary markdown="span">Click here, if you do not know how to do it</summary>
-  <br><br>
+  <summary markdown="span">Click here, if you do not know how to do it.</summary>
+
+  ---
 
   ### *Accessing the Rpi through the command prompt for the first time(with Rpi OS installation)*
 
@@ -76,47 +77,49 @@
     - **password**: YOUR_PASSWORD_HERE
 
   4. That's it. You are in!
+ 
+ ---
 
 </details>
 
-2. Open the terminal and change the directory to `Desktop`.
-3. Install `git` on the RPi & Clone this repository.
+2. **Open the terminal and change the directory to `Desktop`.**
+3. **Install `git` on the RPi & Clone this repository.**
 
 ```shell
 pi@host:~/Desktop $ sudo apt-get install git
 pi@host:~/Desktop $ git clone https://github.com/bimalka98/Computer-Vision-with-Raspberry-Pi.git
 ```
 
-4. Get into the cloned repository.
+4. **Get into the cloned repository.**
 
 ```shell
 pi@host:~/Desktop $ cd Computer-Vision-with-Raspberry-Pi/
 ```
-5. Give execution permission to the shell script.
+5. **Give execution permission to the shell script.**
 
 ```shell
 pi@host:~/Desktop/Computer-Vision-with-Raspberry-Pi $ chmod +x setup.sh
 ```
 
-6. Run the shell script and wait until it finishes its job.
+6. **Run the shell script and wait until it finishes its job.**
 ```shell
 pi@host:~/Desktop/Computer-Vision-with-Raspberry-Pi $ ./setup.sh
 ```
-7. Connect a USB camera/ RPi camera to the RPi.
-8. Change directory to `/Application/bin/`.
+7. **Connect a USB camera/ RPi camera to the RPi.**
+8. **Change directory to `/Application/bin/`.**
 
 ```shell
 pi@host:~/Desktop/Computer-Vision-with-Raspberry-Pi $ cd Application/bin/
 ```
 
-9. Run the executable and check whether it really detects faces
+9. **Run the executable, and check whether it really detects faces.**
 
 ```shell
 pi@host:~/Desktop/Computer-Vision-with-Raspberry-Pi/Application/bin $ ./face_detection
 ```
 
 ---
- 
+
 ## 🔴 A curated list of awesome Raspberry Pi tools, projects, images and resources
 
 https://github.com/thibmaek/awesome-raspberry-pi
